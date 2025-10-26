@@ -29,6 +29,7 @@
                     <param name="content">pvr://channels/tv/*</param>
                 </include>
                 <include content="Object_ContentDynamic" condition="!VideoPlayer.Content(livetv)">
+                    <param name="sortby">episode</param>
                     <param name="content">$VAR[Path_OSD_Episodes]</param>
                 </include>
                 <focusposition>0</focusposition>
