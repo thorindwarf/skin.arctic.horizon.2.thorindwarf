@@ -37,7 +37,17 @@
 
 
         <include>Background_ExtraFanart</include>
-        <include>Background_Main</include>
+        <include condition="!Skin.String(ForegroundStyle,FlixArt)">Background_Main</include>
+        <control type="group">
+            <visible>Skin.String(ForegroundStyle,FlixArt) + [Control.HasFocus(301) | ControlGroup(320).HasFocus()]</visible>
+            <animation effect="fade" start="0" end="100" time="400" reversible="false">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="400" reversible="false">Hidden</animation>
+            <include condition="Skin.String(ForegroundStyle,FlixArt)">Background_ForegroundArtwork</include>
+            <control type="image">
+                <texture colordiffuse="$VAR[Background_Main_ColorDiffuse]">$VAR[Image_Background_Floor]</texture>
+                <include>Animation_Background_FadeInOut</include>
+            </control>
+        </control>
 
         <!-- Fullscreen Widget -->
         <control type="group">
@@ -45,6 +55,7 @@
             <visible>$EXP[Exp_FullscreenWidgetStandard]</visible>
             <visible>!$EXP[Exp_InfoDialogs]</visible>
             <visible>!$EXP[Exp_RecommendationDialogs]</visible>
+            <visible>!Skin.String(ForegroundStyle,FlixArt)</visible>
             <animation effect="fade" start="0" end="100" time="400" reversible="false">Visible</animation>
             <animation effect="fade" start="100" end="0" time="400" reversible="false">Hidden</animation>
             <include>Animation_Foreground_FadeInOut</include>

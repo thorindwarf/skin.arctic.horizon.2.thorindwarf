@@ -50,6 +50,7 @@
     <variable name="Image_CropLogo">
         <value condition="!String.IsEmpty(Container(99950).ListItem.Art(cropimage))">$INFO[Container(99950).ListItem.Art(cropimage)]</value>
         <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_clearlogo))">$INFO[Container(99950).ListItem.Property(base_clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(99950).ListItem.Art(clearlogo))">$INFO[Container(99950).ListItem.Art(clearlogo)]</value>
     </variable>
 
     <variable name="Image_OSD_PosterImage">
@@ -70,6 +71,10 @@
     </variable>
 
     <variable name="Image_Foreground_FlixArt">
+        <value condition="Window.IsVisible(Home) + Skin.String(ForegroundStyle,FlixArt) + Control.HasFocus(301) + !String.IsEmpty(Container(301).ListItem.Art(fanart))">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(Home) + Skin.String(ForegroundStyle,FlixArt) + Control.HasFocus(301) + !String.IsEmpty(Container(301).ListItem.Art(tvshow.fanart))">$INFO[Container(301).ListItem.Art(tvshow.fanart)]</value>
+        <value condition="Window.IsVisible(Home) + Skin.String(ForegroundStyle,FlixArt) + ControlGroup(320).HasFocus()">$VAR[Image_Foreground_FlixArt_Quick]</value>
+        <value condition="Window.IsVisible(Home) + Skin.String(ForegroundStyle,FlixArt) + ![Control.HasFocus(301) | ControlGroup(320).HasFocus()]">common/null.png</value>
         <value condition="![$EXP[Exp_HasBackgroundFanart]]">common/null.png</value>
         <value condition="Skin.String(BackgroundStyle,Blur) + !String.IsEmpty(Container(99950).ListItem.Art(blurimage))">$INFO[Container(99950).ListItem.Art(blurimage.original)]</value>
         <value condition="Skin.String(BackgroundStyle,Blur) + !String.IsEmpty(Container(99950).ListItem.Art(blurimage))">$INFO[Container(99950).ListItem.Art(blurimage.original)]</value>

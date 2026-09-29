@@ -282,6 +282,7 @@
         </include>
         <include content="Object_Control" condition="Skin.String(ForegroundStyle,FlixArt)">
             <param name="control">group</param>
+            <visible>[Control.HasFocus(301) | ControlGroup(320).HasFocus()]</visible>
             <include>Background_NotVideo</include>
             <include content="View_Visibility_Common">
                 <param name="animation_include">Animation_Foreground_Visible_FadeInOut</param>
