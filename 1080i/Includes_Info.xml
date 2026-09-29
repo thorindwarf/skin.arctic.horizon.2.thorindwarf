@@ -166,7 +166,15 @@
                     <height>120</height>
                     <aspectratio align="left">keep</aspectratio>
                     <fadetime>200</fadetime>
+                    <visible>!String.IsEmpty(Container(99950).ListItem.Art(cropimage)) | !String.IsEmpty(Container(99950).ListItem.Property(base_clearlogo))</visible>
                     <texture background="true">$PARAM[mainlogo_texture]</texture>
+                </control>
+                <control type="image">
+                    <height>120</height>
+                    <aspectratio align="left">keep</aspectratio>
+                    <fadetime>200</fadetime>
+                    <visible>String.IsEmpty(Container(99950).ListItem.Art(cropimage)) + String.IsEmpty(Container(99950).ListItem.Property(base_clearlogo)) + !String.IsEmpty(Container(99950).ListItem.Art(clearlogo))</visible>
+                    <texture background="true">$INFO[Container(99950).ListItem.Art(clearlogo)]</texture>
                 </control>
             </control>
         </definition>
@@ -176,7 +184,7 @@
         <param name="colordiffuse" default="main_fg" />
         <param name="container" default="" />
         <param name="width" default="info_plot_w" />
-        <param name="mainlogo_visible">[!String.IsEmpty(Container(99950).ListItem.Art(cropimage)) | !String.IsEmpty(Container(99950).ListItem.Property(base_clearlogo))]</param>
+        <param name="mainlogo_visible">[!String.IsEmpty(Container(99950).ListItem.Art(cropimage)) | !String.IsEmpty(Container(99950).ListItem.Property(base_clearlogo)) | !String.IsEmpty(Container(99950).ListItem.Art(clearlogo))]</param>
         <param name="mainlogo_texture">$VAR[Image_CropLogo]</param>
         <definition>
             <control type="group">
